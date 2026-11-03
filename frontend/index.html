@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Prismora — Image intelligence, editing and symbolic rendering</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<meta name="description" content="Prismora: AI image intelligence, agentic editing and symbolic rendering."><meta name="theme-color" content="#f7f7f5"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 20 20%27%3E%3Cpath d=%27M10 1l9 16H1z%27/%3E%3C/svg%3E"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#f7f7f5;--ink:#111;--mute:#9a9a9a;--sub:#7b7b7b;--line:#e4e4e0}
@@ -23,13 +23,13 @@ h1{font-weight:500;letter-spacing:-.035em;line-height:1.04;font-size:clamp(38px,
 .cta a{position:relative;display:inline-block;background:#111;color:#fff;padding:11px 20px;border-radius:999px;font-size:13.5px;font-weight:500;transition:transform .3s}.cta:hover a{transform:translateY(-1px)}
 .logos{position:absolute;z-index:3;bottom:clamp(28px,6vh,64px);left:0;right:0;display:flex;justify-content:center;flex-wrap:wrap;gap:clamp(26px,4.6vw,66px);padding:0 16px;color:#8d8d8d;font-size:clamp(14px,1.18vw,17px);font-weight:500;letter-spacing:-.01em}
 .logos div{display:flex;align-items:center;gap:7px}.logos svg{width:17px;height:17px;fill:currentColor}
-section.s{max-width:1080px;margin:0 auto;padding:110px 24px 20px}
+section[id]{scroll-margin-top:84px}#menu{display:none}.big{font-size:34px;font-weight:500;letter-spacing:-.03em}.chip{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:6px 13px;margin:0 6px 8px 0;font-size:13px;color:var(--sub);background:#fff}.pr{font-size:22px;font-weight:500;color:var(--ink);letter-spacing:-.02em}nav{flex-wrap:wrap}section.s{max-width:1080px;margin:0 auto;padding:110px 24px 20px}
 h2{font-weight:500;letter-spacing:-.03em;font-size:clamp(28px,3vw,44px);line-height:1.08;max-width:640px}h2 span{color:var(--mute)}
 .lead{color:var(--sub);margin-top:16px;max-width:520px;line-height:1.5;font-size:15px}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));margin-top:48px;border-top:1px solid var(--line)}
 .grid>div{padding:26px 24px 30px 0;border-bottom:1px solid var(--line)}.grid h3{font-weight:500;font-size:16px;margin-bottom:8px}.grid p{color:var(--sub);font-size:14px;line-height:1.5}
 .studio{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:44px}
-@media(max-width:760px){.studio{grid-template-columns:1fr}nav a.l{display:none}nav{justify-content:space-between;padding:22px 18px 0}.copy{top:20%}.logos{gap:14px 24px;font-size:13px}}
+@media(max-width:760px){#menu{display:inline-block;margin-left:auto}nav.open{background:var(--bg)}nav.open a.l{display:block;width:100%;order:9;padding:9px 0;font-size:15px}.studio{grid-template-columns:1fr}nav a.l{display:none}nav{justify-content:space-between;padding:22px 18px 0}.copy{top:20%}.logos{gap:14px 24px;font-size:13px}}
 .box{border:1px solid var(--line);border-radius:14px;background:#fff;padding:16px;min-height:300px;overflow:auto}
 .ctrl{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:14px;font-size:13px;color:var(--sub)}
 select,button.b{font:inherit;font-size:13px;padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:#fff;cursor:pointer}button.b.d{background:#111;color:#fff;border-color:#111}
@@ -37,7 +37,7 @@ select,button.b{font:inherit;font-size:13px;padding:8px 14px;border-radius:999px
 .stats{font-size:13px;color:var(--sub);line-height:1.7;margin-top:10px}
 #trace{background:#111;color:#cfe;font:12.5px/1.7 ui-monospace,Menlo,monospace;border-radius:14px;padding:18px;min-height:260px;margin-top:36px;overflow:auto}
 #trace i{color:#7dffa8;font-style:normal}#trace b{color:#ffcf5a;font-weight:500}
-footer{margin-top:110px;border-top:1px solid var(--line);padding:50px 24px 36px}.fi{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:2fr repeat(3,1fr);gap:30px;font-size:13.5px}
+footer{margin-top:110px;border-top:1px solid var(--line);padding:50px 24px 96px}.fi{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:2fr repeat(3,1fr);gap:30px;font-size:13.5px}
 .fi h4{font-weight:500;margin-bottom:10px}.fi a{display:block;color:var(--sub);margin:6px 0}.fb{max-width:1080px;margin:36px auto 0;color:var(--mute);font-size:12.5px}@media(max-width:760px){.fi{grid-template-columns:1fr 1fr}}
 #chatBtn{position:fixed;right:20px;bottom:20px;z-index:30;margin:0}
 #chat{position:fixed;right:20px;bottom:74px;z-index:30;width:min(380px,calc(100vw - 40px));height:480px;background:#fff;border:1px solid var(--line);border-radius:16px;display:none;flex-direction:column;box-shadow:0 20px 60px rgba(0,0,0,.12)}
@@ -47,8 +47,8 @@ footer{margin-top:110px;border-top:1px solid var(--line);padding:50px 24px 36px}
 #keys{padding:10px 14px;border-bottom:1px solid var(--line);font-size:12px;color:var(--sub)}#keys input{width:100%;margin-top:6px;border:1px solid var(--line);border-radius:8px;padding:6px 8px;font:inherit;font-size:12px}
 :focus-visible{outline:2px solid #5ad7ff;outline-offset:2px}@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
 </style></head><body>
-<nav aria-label="Main"><a class="brand" href="#top"><svg width="16" height="18" viewBox="0 0 16 18"><path d="M2 0h4v18H2zM7 9c3-1 5-4 6-9h3c-1 5-3 8-6 9 3 1 5 4 6 9h-3c-1-5-3-8-6-9z"/></svg>Prismora</a>
-<a class="l" href="#platform">Platform</a><a class="l" href="#studio">Studio</a><a class="l" href="#swarm">Agents</a><a class="l" href="#security">Security</a><a class="l" href="#builder">Builder</a><a class="l" href="#pricing">Pricing</a><a class="pill" href="#studio">Open Studio</a></nav>
+<nav aria-label="Main" id="nav"><a class="brand" href="#top"><svg width="18" height="18" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 1l9 16H1zm0 6L6 14h8z"/></svg>Prismora</a>
+<a class="l" href="#platform">Platform</a><a class="l" href="#studio">Studio</a><a class="l" href="#swarm">Agents</a><a class="l" href="#security">Security</a><a class="l" href="#builder">Builder</a><a class="l" href="#pricing">Pricing</a><button class="b" id="menu" aria-label="Menu">Menu</button><a class="pill" href="#studio">Open Studio</a></nav>
 
 <section class="hero" id="top"><canvas id="dots" aria-hidden="true"></canvas>
 <div class="copy"><h1><span>Seeing,</span>Reimagined by Agents.</h1><p>Recognise, edit and transform images with a swarm that checks its own work.</p>
@@ -76,21 +76,25 @@ footer{margin-top:110px;border-top:1px solid var(--line);padding:50px 24px 36px}
 
 <section class="s" id="builder"><h2>Built by Nikhil Chary Sriramoju. <span>Final-year CSE, shipping AI systems.</span></h2>
 <p class="lead">Prismora is one of a series of full-stack AI projects, each with agents, RAG, CNN vision, Docker and a security model.</p>
-<div class="grid"><div><h3>Projects</h3><p>APEX-AI, CloudPulse AI, BastionMesh AI, ModelRoute, SecureNav-NEXUS, VigilAI Engine Mesh, PharmAi Vision, Raft KV Store.</p></div>
-<div><h3>Job simulations (Forage)</h3><p>PwC Technology and Cyber Security Consulting, Datacom Cyber Security Operations and Agentic AI, British Airways Data Science, Deloitte Data Analytics and Technology, Clifford Chance, Latham &amp; Watkins.</p></div>
-<div><h3>Courses and programmes</h3><p>NASSCOM Cloud Infrastructure Analyst, IT Forensic Analyst, Endpoint Security; Reliance Foundation IoT Security and AI-ML Engineer; NIELIT Yuva AI for All; Power BI.</p></div>
-<div><h3>Find me</h3><p><a href="https://github.com/Nikhil-creat">GitHub</a> · <a href="https://in.linkedin.com/in/nikhil-chary-sriramoju-95041b38a">LinkedIn</a> · <a href="mailto:sriramojunikhil66@gmail.com">Email</a></p></div></div></section>
+<div class="grid"><div><div class="big"><span data-n="10">0</span>+</div><p>Forage job simulations: PwC, Datacom, British Airways, Deloitte, Clifford Chance, Latham &amp; Watkins</p></div>
+<div><div class="big"><span data-n="5">0</span></div><p>NASSCOM / Skill India courses: Cloud Infrastructure, IT Forensics, Endpoint Security, Blockchain, Product Management</p></div>
+<div><div class="big"><span data-n="3">0</span></div><p>Reliance Foundation programmes: Industry 4.0 Robotics, IoT Security, AI-ML Engineer</p></div>
+<div><div class="big"><span data-n="8">0</span></div><p>Flagship AI projects, all with agents, RAG, CNN and Docker</p></div></div>
+<div style="margin-top:30px"><span class="chip">APEX-AI</span><span class="chip">CloudPulse AI</span><span class="chip">BastionMesh AI</span><span class="chip">ModelRoute</span><span class="chip">SecureNav-NEXUS</span><span class="chip">VigilAI Engine Mesh</span><span class="chip">PharmAi Vision</span><span class="chip">Raft KV Store</span></div>
+<div class="ctrl"><a class="pill" style="margin:0" href="https://github.com/Nikhil-creat">GitHub</a><a class="pill" style="margin:0" href="https://in.linkedin.com/in/nikhil-chary-sriramoju-95041b38a">LinkedIn</a><a class="pill" style="margin:0" href="mailto:sriramojunikhil66@gmail.com">Email</a></div></section>
 <section class="s" id="stack"><h2>Stack. <span>Free tiers all the way.</span></h2><div class="grid"><div><h3>Frontend</h3><p>Static HTML, canvas and vanilla JS. Hosts anywhere.</p></div><div><h3>Backend</h3><p>FastAPI, Celery worker, Redis, Qdrant, Docker.</p></div><div><h3>AI</h3><p>Groq and Gemini assistant, LangGraph swarm, CLIP RAG, optional SAM 2, EasyOCR, Real-ESRGAN, Depth Anything V2.</p></div></div></section>
-<section class="s" id="pricing"><h2>Pay for what you process.</h2><div class="grid">
-<div><h3>Starter</h3><p>Free. 100 images a month, symbolic engines, CPU queue.</p></div><div><h3>Studio</h3><p>$29 a month. 5,000 images, generative edits, Visual RAG.</p></div><div><h3>Enterprise</h3><p>Custom. Dedicated GPUs, SSO, RBAC and audit logs.</p></div></div></section>
+<section class="s" id="pricing"><h2>Pay for what you process. <span>In rupees.</span></h2><div class="grid">
+<div><h3>Starter</h3><p><b class="pr">₹0</b> forever. 100 images a month, symbolic engines, community support.</p></div>
+<div><h3>Studio</h3><p><b class="pr">₹2,399</b> a month. 5,000 images, generative edits, Visual RAG, priority queue. Extra images ₹0.60 each. GST extra.</p></div>
+<div><h3>Enterprise</h3><p>Custom. Dedicated GPUs, SSO, RBAC, audit logs and an SLA.</p></div></div>
+<div class="box" style="margin-top:28px;min-height:0"><div class="ctrl" style="margin:0"><label>Images per month <input type="range" id="imgs" min="100" max="100000" step="100" value="5000"></label><b id="imgsN"></b></div><p class="stats" id="est"></p></div></section>
 
 <footer><div class="fi"><div><a class="brand" href="#top">Prismora</a><p style="color:var(--sub);max-width:260px;line-height:1.5">Image intelligence for teams that ship visuals.</p></div>
 <div><h4>Product</h4><a href="#platform">Platform</a><a href="#studio">Studio</a><a href="#swarm">Agents</a></div><div><h4>Trust</h4><a href="#security">Security</a><a href="#pricing">Pricing</a></div><div><h4>Contact</h4><a href="mailto:sriramojunikhil66@gmail.com">Email</a><a href="https://github.com/Nikhil-creat">GitHub</a></div></div>
-<div class="fb">© 2026 Prismora Enterprise. All rights reserved.</div></footer>
+<div class="fb">© 2026 Prismora. Designed and built by Nikhil Chary Sriramoju.</div></footer>
 
 <button class="pill" id="chatBtn">Ask Prismora AI</button>
-<div id="chat" role="dialog" aria-label="AI assistant"><header>Assistant <select id="prov"><option value="groq">Groq</option><option value="gemini">Gemini</option><option value="api">Prismora API</option></select></header>
-<div id="keys">Paste a free API key (kept in this tab only).<input id="key" type="password" placeholder="Groq or Gemini API key" autocomplete="off"></div>
+<div id="chat" role="dialog" aria-label="AI assistant"><header>Prismora AI <small id="eng" style="color:var(--sub);font-weight:400;font-size:11px"></small></header>
 <div id="msgs"><p>Hi. Ask me about Prismora, its agents or how to deploy it.</p></div><form id="cf"><input id="q" placeholder="Type a question" autocomplete="off"><button class="pill" style="margin:0;padding:9px 16px">Send</button></form></div>
 
 <script src="config.js"></script>
@@ -151,13 +155,21 @@ const o=$('out');o.style.font=m=='emoji'?'9px/10px sans-serif':m=='latex'?'9px/1
 $('run').onclick=async()=>{const t=$('trace');t.innerHTML='';const L=[["Planner","Request: sharpen portrait, emoji-mosaic poster. DAG: analyse, upscale, symbolize, critique."],["Vision Analyst","Laplacian variance 62 (blurry). SAM 2 mask: 1 subject. OCR: none."],["Transformer","Real-ESRGAN x2 applied. Emoji mosaic density 80."],["Critic","Fidelity 0.71 is below threshold 0.80. <b>Retry 1/3</b> with GFPGAN face restore."],["Transformer","Re-ran with GFPGAN. Mosaic regenerated."],["Critic","Fidelity 0.91. <b>Approved.</b> C2PA provenance embedded."]];
 for(const[a,m]of L){t.innerHTML+=`<div><i>[${a}]</i> ${m}</div>`;t.scrollTop=1e5;await new Promise(r=>setTimeout(r,matchMedia('(prefers-reduced-motion:reduce)').matches?0:900))}};
 
-/* assistant (calls Groq or Gemini directly with the visitor's own key) */
-const SYS="You are Prismora AI, the assistant for Prismora Enterprise: an image intelligence platform with FastAPI, LangGraph agents (Planner, Vision Analyst, Transformer, Critic), Qdrant visual RAG, CNN diagnostics, Docker deployment, and symbolic rendering (emoji, ASCII, LaTeX). Answer briefly and accurately. If unsure, say so.";const hist=[];
+/* assistant: server-side Groq + Gemini via /api/chat */
+const hist=[];
 $('chatBtn').onclick=()=>$('chat').classList.toggle('on');
 function add(t,c){const p=document.createElement('p');p.textContent=t;if(c)p.className=c;$('msgs').append(p);$('msgs').scrollTop=1e5;return p}
-$('cf').onsubmit=async e=>{e.preventDefault();const q=$('q').value.trim(),k=$('key').value.trim();if(!q)return;if(!k){add('Paste your API key above first.');return}
-$('q').value='';add(q,'u');hist.push({role:'user',content:q});const p=add('…');
-try{let txt;if($('prov').value=='api'){const base=window.PRISMORA_API;if(!base)throw new Error('Set PRISMORA_API in config.js');const r=await fetch(base+'/api/assistant',{method:'POST',headers:{'Content-Type':'application/json','X-API-Key':k},body:JSON.stringify({message:q,history:hist.slice(-9,-1)})});const j=await r.json();if(!r.ok)throw new Error(j.detail||r.status);txt=j.reply}else if($('prov').value=='groq'){const r=await fetch('https://api.groq.com/openai/v1/chat/completions',{method:'POST',headers:{'Content-Type':'application/json',Authorization:'Bearer '+k},body:JSON.stringify({model:'llama-3.3-70b-versatile',messages:[{role:'system',content:SYS},...hist.slice(-10)]})});const j=await r.json();if(!r.ok)throw new Error(j.error?.message||r.status);txt=j.choices[0].message.content}
-else{const r=await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key='+encodeURIComponent(k),{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({system_instruction:{parts:[{text:SYS}]},contents:hist.slice(-10).map(m=>({role:m.role=='user'?'user':'model',parts:[{text:m.content}]}))})});const j=await r.json();if(!r.ok)throw new Error(j.error?.message||r.status);txt=j.candidates[0].content.parts[0].text}
-p.textContent=txt;hist.push({role:'assistant',content:txt})}catch(err){p.textContent='Request failed: '+err.message+'. Check the key and provider.'}};
+$('cf').onsubmit=async e=>{e.preventDefault();const q=$('q').value.trim().slice(0,800);if(!q)return;$('q').value='';add(q,'u');hist.push({role:'user',content:q});const p=add('…');
+try{const r=await fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({messages:hist.slice(-8)})});const j=await r.json().catch(()=>({}));if(!r.ok)throw new Error(j.error||('HTTP '+r.status));p.textContent=j.reply;$('eng').textContent=j.provider+' · '+j.model;hist.push({role:'assistant',content:j.reply})}
+catch(err){p.textContent='The assistant is unavailable right now ('+err.message+').';hist.pop()}};
+/* pricing in INR */
+const inr=new Intl.NumberFormat('en-IN',{style:'currency',currency:'INR',maximumFractionDigits:0}),nf=new Intl.NumberFormat('en-IN');
+function est(){const n=+$('imgs').value;let t=0,plan='Starter';if(n>5000){plan='Studio + extra images';t=2399+(n-5000)*.6}else if(n>100){plan='Studio';t=2399}
+$('imgsN').textContent=nf.format(n)+' images';$('est').textContent=plan+': '+inr.format(Math.round(t))+' per month, '+inr.format(Math.round(t*1.18))+' with 18% GST.'}
+$('imgs').oninput=est;est();
+/* mobile menu */
+$('menu').onclick=()=>$('nav').classList.toggle('open');document.querySelectorAll('#nav a').forEach(a=>a.addEventListener('click',()=>$('nav').classList.remove('open')));
+/* credential counters */
+const io=new IntersectionObserver(es=>es.forEach(x=>{if(!x.isIntersecting)return;io.unobserve(x.target);const n=+x.target.dataset.n;let i=0;const id=setInterval(()=>{i++;x.target.textContent=i;if(i>=n)clearInterval(id)},90)}),{threshold:.5});
+document.querySelectorAll('[data-n]').forEach(el=>io.observe(el));
 </script></body></html>
