@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Prismora — Image intelligence, editing and symbolic rendering</title>
-<meta name="description" content="Prismora: AI image intelligence, agentic editing and symbolic rendering."><meta name="theme-color" content="#f7f7f5"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 20 20%27%3E%3Cpath d=%27M10 1l9 16H1z%27/%3E%3C/svg%3E"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<title>Prismora | AI image intelligence, agentic editing and symbolic art</title>
+<meta name="description" content="AI image intelligence: analyse, edit and transform images with an agent swarm. Emoji, ASCII, braille and LaTeX art, visual RAG and a Groq + Gemini assistant."><meta name="keywords" content="AI image editor, image analysis, agentic AI, multi-agent LangGraph, visual RAG, Qdrant, CLIP, computer vision, CNN, emoji mosaic, ASCII art generator, image to ASCII, braille art, LaTeX art, halftone, pixel art, blur detection, Groq, Gemini, FastAPI, Docker, Nikhil Chary Sriramoju"><meta name="author" content="Nikhil Chary Sriramoju"><meta property="og:type" content="website"><meta property="og:title" content="Prismora: AI image intelligence platform"><meta property="og:description" content="Analyse, edit and transform images with an agent swarm. Emoji, ASCII, braille and LaTeX art in your browser."><meta name="twitter:card" content="summary"><script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Prismora","applicationCategory":"MultimediaApplication","operatingSystem":"Web","description":"AI image intelligence platform with agentic editing, visual RAG and symbolic image rendering.","offers":{"@type":"Offer","price":"0","priceCurrency":"INR"},"author":{"@type":"Person","name":"Nikhil Chary Sriramoju","url":"https://github.com/Nikhil-creat"}}</script><meta name="theme-color" content="#f7f7f5"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 20 20%27%3E%3Cpath d=%27M10 1l9 16H1z%27/%3E%3C/svg%3E"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#f7f7f5;--ink:#111;--mute:#9a9a9a;--sub:#7b7b7b;--line:#e4e4e0}
@@ -23,12 +23,12 @@ h1{font-weight:500;letter-spacing:-.035em;line-height:1.04;font-size:clamp(38px,
 .cta a{position:relative;display:inline-block;background:#111;color:#fff;padding:11px 20px;border-radius:999px;font-size:13.5px;font-weight:500;transition:transform .3s}.cta:hover a{transform:translateY(-1px)}
 .logos{position:absolute;z-index:3;bottom:clamp(28px,6vh,64px);left:0;right:0;display:flex;justify-content:center;flex-wrap:wrap;gap:clamp(26px,4.6vw,66px);padding:0 16px;color:#8d8d8d;font-size:clamp(14px,1.18vw,17px);font-weight:500;letter-spacing:-.01em}
 .logos div{display:flex;align-items:center;gap:7px}.logos svg{width:17px;height:17px;fill:currentColor}
-section[id]{scroll-margin-top:84px}#menu{display:none}.big{font-size:34px;font-weight:500;letter-spacing:-.03em}.chip{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:6px 13px;margin:0 6px 8px 0;font-size:13px;color:var(--sub);background:#fff}.pr{font-size:22px;font-weight:500;color:var(--ink);letter-spacing:-.02em}nav{flex-wrap:wrap}section.s{max-width:1080px;margin:0 auto;padding:110px 24px 20px}
+label{display:inline-flex;gap:6px;align-items:center}input[type=checkbox]{accent-color:#111}section[id]{scroll-margin-top:84px}#menu{display:none}.big{font-size:34px;font-weight:500;letter-spacing:-.03em}.chip{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:6px 13px;margin:0 6px 8px 0;font-size:13px;color:var(--sub);background:#fff}.pr{font-size:22px;font-weight:500;color:var(--ink);letter-spacing:-.02em}nav{flex-wrap:wrap}section.s{max-width:1080px;margin:0 auto;padding:110px 24px 20px}
 h2{font-weight:500;letter-spacing:-.03em;font-size:clamp(28px,3vw,44px);line-height:1.08;max-width:640px}h2 span{color:var(--mute)}
 .lead{color:var(--sub);margin-top:16px;max-width:520px;line-height:1.5;font-size:15px}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));margin-top:48px;border-top:1px solid var(--line)}
 .grid>div{padding:26px 24px 30px 0;border-bottom:1px solid var(--line)}.grid h3{font-weight:500;font-size:16px;margin-bottom:8px}.grid p{color:var(--sub);font-size:14px;line-height:1.5}
-.studio{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:44px}
+.studio{display:grid;grid-template-columns:1fr 1.5fr;gap:28px;margin-top:44px}
 @media(max-width:760px){#menu{display:inline-block;margin-left:auto}nav.open{background:var(--bg)}nav.open a.l{display:block;width:100%;order:9;padding:9px 0;font-size:15px}.studio{grid-template-columns:1fr}nav a.l{display:none}nav{justify-content:space-between;padding:22px 18px 0}.copy{top:20%}.logos{gap:14px 24px;font-size:13px}}
 .box{border:1px solid var(--line);border-radius:14px;background:#fff;padding:16px;min-height:300px;overflow:auto}
 .ctrl{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:14px;font-size:13px;color:var(--sub)}
@@ -64,9 +64,18 @@ footer{margin-top:110px;border-top:1px solid var(--line);padding:50px 24px 96px}
 <div><h3>Agent swarm</h3><p>Planner, Vision Analyst, Transformer and Critic run as a LangGraph with self-healing retries.</p></div>
 <div><h3>Non-destructive layers</h3><p>Every step is a node in a history graph, so you can undo, branch and compare.</p></div></div></section>
 
-<section class="s" id="studio"><h2>Studio. <span>Runs in your browser, nothing uploaded.</span></h2><p class="lead">Drop an image to analyse it and render it as emoji, ASCII or LaTeX. This demo runs locally; the full pipeline runs on the backend.</p>
-<div class="studio"><div class="box"><p style="color:var(--sub);font-size:14px">Choose an image (PNG, JPG or WebP, up to 50 MB).</p><div class="ctrl"><input type="file" id="file" accept="image/png,image/jpeg,image/webp"></div><canvas id="prev" style="max-width:100%;margin-top:14px;border-radius:8px"></canvas><div class="stats" id="stats">No image loaded.</div></div>
-<div class="box"><div class="ctrl" style="margin:0 0 12px"><select id="mode"><option value="emoji">Emoji mosaic</option><option value="ascii">ASCII matrix</option><option value="latex">LaTeX matrix</option><option value="contour">Edge contours</option></select><label>Density <input type="range" id="dens" min="30" max="140" value="80"></label><button class="b d" id="go">Render</button></div><pre id="out"></pre></div></div></section>
+<section class="s" id="studio"><h2>Studio. <span>Runs in your browser, nothing uploaded.</span></h2><p class="lead">Drop, paste or pick an image. Analyse it, turn it into emoji, ASCII, braille, LaTeX, halftone or pixel-palette art, then copy or download it.</p>
+<div class="studio"><div class="box" id="drop"><div class="ctrl" style="margin:0 0 10px"><input type="file" id="file" accept="image/png,image/jpeg,image/webp"><button class="b" id="sample">Use sample</button></div>
+<p style="color:var(--sub);font-size:13px">PNG, JPG or WebP up to 50 MB. You can also drag, drop or paste an image.</p>
+<canvas id="prev" style="max-width:100%;margin-top:14px;border-radius:8px"></canvas><div class="stats" id="stats">No image loaded.</div>
+<canvas id="hist" width="300" height="44" style="display:none;width:100%;max-width:300px"></canvas><div class="ctrl" id="sw"></div>
+<div class="ctrl"><button class="b" id="clean">Download clean copy (no EXIF)</button></div></div>
+<div class="box"><div class="ctrl" style="margin:0 0 10px"><select id="mode"><option value="emoji">Emoji mosaic</option><option value="ascii">ASCII art</option><option value="braille">Braille art</option><option value="binary">Binary / hex / matrix</option><option value="latex">LaTeX matrix</option><option value="edges">Edge contours</option><option value="halftone">Halftone</option><option value="pixel">Pixel palette art</option></select><select id="style"></select></div>
+<div class="ctrl"><label>Density <input type="range" id="dens" min="30" max="140" value="80"></label><label>Contrast <input type="range" id="con" min="-50" max="50" value="0"></label></div>
+<div class="ctrl"><label><input type="checkbox" id="inv"> Invert</label><label><input type="checkbox" id="col"> Colour</label><select id="bg"><option value="l">Light background</option><option value="d">Dark background</option></select></div>
+<div class="ctrl"><button class="b d" id="go">Render</button><button class="b" id="cp">Copy</button><button class="b" id="dtxt">.txt</button><button class="b" id="dpng">PNG</button><button class="b" id="dsvg">SVG</button><button class="b" id="dtex">.tex</button></div>
+<div style="position:relative;margin-top:12px;border:1px solid var(--line);border-radius:8px;overflow:hidden"><canvas id="out" style="display:block;width:100%;height:auto"></canvas><canvas id="cmp" style="position:absolute;inset:0;width:100%;height:100%;clip-path:inset(0 100% 0 0)"></canvas></div>
+<div class="ctrl"><label>Compare with original <input type="range" id="cmps" min="0" max="100" value="0"></label></div><p class="stats" id="msg"></p></div></div></section>
 
 <section class="s" id="swarm"><h2>Agent swarm. <span>Watch it plan, act and self-correct.</span></h2><p class="lead">A sample trace of the LangGraph run. The live backend streams the same events over SSE.</p>
 <div class="ctrl"><button class="b d" id="run">Run workflow</button></div><div id="trace" role="log" aria-live="polite">Press Run workflow.</div></section>
@@ -139,17 +148,88 @@ ready=true;size();const t0=performance.now();const loop=n=>{render((n-t0)/1000);
 img.src=IMG;addEventListener('resize',()=>ready&&size());size()})();
 
 /* studio */
-const $=id=>document.getElementById(id);let src=null;
-$('file').onchange=e=>{const f=e.target.files[0];if(!f)return;if(f.size>50*1048576){$('stats').textContent='File is over the 50 MB limit.';return}
-const u=URL.createObjectURL(f),im=new Image();im.onload=()=>{src=im;const c=$('prev'),s=Math.min(1,360/im.width);c.width=im.width*s;c.height=im.height*s;c.getContext('2d').drawImage(im,0,0,c.width,c.height);analyse(c);URL.revokeObjectURL(u)};im.onerror=()=>$('stats').textContent='That file is not a readable image.';im.src=u};
-function gray(w,h){const c=document.createElement('canvas');c.width=w;c.height=h;const g=c.getContext('2d');g.drawImage(src,0,0,w,h);const d=g.getImageData(0,0,w,h).data,o=new Float32Array(w*h);for(let i=0;i<o.length;i++)o[i]=.299*d[i*4]+.587*d[i*4+1]+.114*d[i*4+2];return o}
-function analyse(c){const w=c.width,h=c.height,g=gray(w,h);let s=0,s2=0,n=0;for(let y=1;y<h-1;y++)for(let x=1;x<w-1;x++){const l=4*g[y*w+x]-g[y*w+x-1]-g[y*w+x+1]-g[(y-1)*w+x]-g[(y+1)*w+x];s+=l;s2+=l*l;n++}
-const v=s2/n-(s/n)**2,mean=g.reduce((a,b)=>a+b,0)/g.length;$('stats').innerHTML=`Size: ${src.naturalWidth}×${src.naturalHeight}<br>Sharpness (Laplacian variance): ${v.toFixed(0)}, ${v<100?'blurry':'sharp'}<br>Mean brightness: ${mean.toFixed(0)}/255`}
-$('go').onclick=()=>{if(!src){$('stats').textContent='Choose an image first.';return}
-const cols=+$('dens').value,rows=Math.round(cols*src.naturalHeight/src.naturalWidth*.5);let g=gray(cols,rows),m=$('mode').value;if(m=='contour'){const e=new Float32Array(g.length);for(let y=1;y<rows-1;y++)for(let x=1;x<cols-1;x++){const gx=g[y*cols+x+1]-g[y*cols+x-1],gy=g[(y+1)*cols+x]-g[(y-1)*cols+x];e[y*cols+x]=255-Math.min(255,Math.hypot(gx,gy)*2)}g=e;m='ascii'}
-const ramp=m=='ascii'?'@%#*+=-:. '.split(''):m=='emoji'?['🌑','🌒','🌓','🌔','🌕','⭐','✨','🤍']:['\\sum','\\int','\\nabla','x^2','=','-','.',' '];let out='';
-for(let y=0;y<rows;y++){const line=[];for(let x=0;x<cols;x++){const l=g[y*cols+x]/255;line.push(ramp[Math.min(ramp.length-1,Math.floor(l*ramp.length))])}out+=(m=='latex'?line.join(' ')+' \\\\':line.join(''))+'\n'}
-const o=$('out');o.style.font=m=='emoji'?'9px/10px sans-serif':m=='latex'?'9px/10px monospace':'6px/6px monospace';o.textContent=out};
+const $=id=>document.getElementById(id);let src=null,last=null;
+const SW=()=>src.naturalWidth||src.width,SH=()=>src.naturalHeight||src.height,msg=t=>{$('msg').textContent=t};
+const STY={
+emoji:{Moon:['🌑','🌒','🌓','🌔','🌕','⭐','✨','🤍'],Hearts:['🖤','🤎','💜','💙','💚','💛','🧡','🤍'],Squares:['⬛','🟫','🟪','🟦','🟥','🟩','🟧','🟨','⬜'],Faces:['🌚','😶','🙂','😀','😄','😁','🤩','🌝'],Space:['🌌','🪐','🌍','🌙','⭐','🌟','🌞','✨'],Food:['🍫','🍪','🍩','🍔','🍕','🧀','🍋','🍚']},
+ascii:{Classic:'@%#*+=-:. ',Detailed:'$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/|()1{}[]?-_+~<>i!lI;:,^. ',Blocks:'█▓▒░ ',Dots:'●◉○◌· ',Minimal:'#+. '},
+braille:{Standard:1},
+binary:{Binary:['1','0',' '],Hex:['F','C','A','8','5','3','1','0',' '],Matrix:['ﾊ','ﾐ','ﾋ','ｰ','ｳ','ｼ','ﾅ','ﾓ',' ']},
+latex:{Calculus:['\\sum','\\int','\\nabla','x^2','=','-','.',' '],Greek:['\\Omega','\\Sigma','\\Delta','\\pi','\\alpha','\\lambda','.',' '],Logic:['\\forall','\\exists','\\land','\\lor','\\neg','\\in','.',' '],Numbers:['9','8','6','4','3','1','0',' ']},
+edges:{Classic:1},
+halftone:{Dots:'dot',Squares:'sq',Lines:'ln'},
+pixel:{'Original colours':null,'Game Boy':['#0f380f','#306230','#8bac0f','#9bbc0f'],Sepia:['#1b1109','#4b3621','#8a6b45','#c9a97a','#f1e2c6'],Neon:['#0b0033','#4b00a0','#ff00a0','#00f0ff','#fcee0a','#ffffff'],Pastel:['#5b5b7a','#a78bfa','#f9a8d4','#fde68a','#bbf7d0','#ffffff'],'Retro 8-bit':['#000000','#1d2b53','#7e2553','#008751','#ab5236','#5f574f','#c2c3c7','#fff1e8'],Ocean:['#03045e','#0077b6','#00b4d8','#90e0ef','#caf0f8'],Sunset:['#1a0b2e','#6a1b9a','#e53935','#fb8c00','#ffd54f','#fff8e1'],Mono:['#000000','#555555','#aaaaaa','#ffffff']}};
+const CFG={emoji:{cw:18,ch:18,max:90,fs:15},ascii:{cw:8,ch:16,max:140,fs:14},braille:{cw:8,ch:16,max:120,fs:15},binary:{cw:8,ch:14,max:140,fs:12},latex:{cw:46,ch:18,max:50,fs:13},edges:{cw:8,ch:16,max:140,fs:14},halftone:{cw:10,ch:10,max:110},pixel:{cw:10,ch:10,max:110}};
+const MONO='ui-monospace,Menlo,Consolas,monospace',EMO='"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif';
+const rc=(P,i)=>'rgb('+P.d[i*4]+','+P.d[i*4+1]+','+P.d[i*4+2]+')';
+function fillStyles(){$('style').innerHTML=Object.keys(STY[$('mode').value]).map(k=>'<option>'+k+'</option>').join('')}
+function sample(w,h){const c=document.createElement('canvas');c.width=w;c.height=h;const g=c.getContext('2d',{willReadFrequently:true});g.drawImage(src,0,0,w,h);const d=g.getImageData(0,0,w,h).data,L=new Float32Array(w*h),f=1+(+$('con').value)/60;
+for(let i=0;i<L.length;i++){const l=(.299*d[i*4]+.587*d[i*4+1]+.114*d[i*4+2])/255;L[i]=Math.min(1,Math.max(0,(l-.5)*f+.5))}return{L,d,w,h}}
+function render(){
+if(!src){msg('Choose an image or tap Use sample.');return}
+const m=$('mode').value,v=STY[m][$('style').value],cf=CFG[m],col=$('col').checked,dark=$('bg').value=='d',inv=$('inv').checked,flip=dark&&m!='emoji'&&m!='pixel';
+const cols=Math.min(+$('dens').value,cf.max),rows=Math.max(1,Math.round(cols*SH()/SW()*cf.cw/cf.ch));
+const bgc=dark?'#0d0d0d':'#ffffff',ink=dark?'#f2f2f2':'#0d0d0d',sh=[],R=[];
+const A=l=>{if(inv)l=1-l;if(flip)l=1-l;return l};
+const P=m=='braille'?sample(cols*2,rows*4):sample(cols,rows);
+if(['emoji','ascii','binary','latex','edges'].includes(m)){
+let ramp=typeof v=='string'?Array.from(v):v,E=null;
+if(m=='edges'){E=new Float32Array(cols*rows).fill(1);for(let y=1;y<rows-1;y++)for(let x=1;x<cols-1;x++){const i=y*cols+x,gx=P.L[i+1]-P.L[i-1],gy=P.L[i+cols]-P.L[i-cols];E[i]=1-Math.min(1,Math.hypot(gx,gy)*3)}ramp=Array.from(STY.ascii.Classic)}
+for(let y=0;y<rows;y++){const row=[];for(let x=0;x<cols;x++){const i=y*cols+x,l=A(E?E[i]:P.L[i]),ch=ramp[Math.min(ramp.length-1,Math.floor(l*ramp.length))];row.push(ch);if(ch!=' ')sh.push({t:'t',x:(x+.5)*cf.cw,y:(y+.5)*cf.ch,ch,c:(col&&m!='emoji')?rc(P,i):ink})}R.push(row)}
+}else if(m=='braille'){
+const B=[[1,8],[2,16],[4,32],[64,128]];
+for(let y=0;y<rows;y++){const row=[];for(let x=0;x<cols;x++){let b=0;for(let dy=0;dy<4;dy++)for(let dx=0;dx<2;dx++){if(A(P.L[(y*4+dy)*cols*2+x*2+dx])<.5)b|=B[dy][dx]}const ch=String.fromCharCode(0x2800+b);row.push(ch);if(b)sh.push({t:'t',x:(x+.5)*cf.cw,y:(y+.5)*cf.ch,ch,c:col?rc(P,(y*4+1)*cols*2+x*2):ink})}R.push(row)}
+}else if(m=='halftone'){
+for(let y=0;y<rows;y++)for(let x=0;x<cols;x++){const i=y*cols+x,d=1-A(P.L[i]);if(d<.04)continue;const cx=(x+.5)*cf.cw,cy=(y+.5)*cf.ch,c=col?rc(P,i):ink;
+if(v=='dot')sh.push({t:'c',x:cx,y:cy,r:cf.cw/2*Math.sqrt(d)*1.1,c});else if(v=='sq'){const s=cf.cw*Math.sqrt(d);sh.push({t:'r',x:cx-s/2,y:cy-s/2,w:s,h:s,c})}else{const hh=cf.ch*d;sh.push({t:'r',x:x*cf.cw,y:cy-hh/2,w:cf.cw,h:hh,c})}}
+}else{
+for(let y=0;y<rows;y++)for(let x=0;x<cols;x++){const i=y*cols+x;let c;if(v){const l=inv?1-P.L[i]:P.L[i];c=v[Math.min(v.length-1,Math.floor(l*v.length))]}else c=rc(P,i);sh.push({t:'r',x:x*cf.cw,y:y*cf.ch,w:cf.cw+.5,h:cf.ch+.5,c})}
+}
+const W=cols*cf.cw,H=rows*cf.ch,S=Math.max(1,Math.min(2,4000/Math.max(W,H))),c=$('out'),g=c.getContext('2d');
+c.width=Math.round(W*S);c.height=Math.round(H*S);g.setTransform(S,0,0,S,0,0);g.fillStyle=bgc;g.fillRect(0,0,W,H);g.textAlign='center';g.textBaseline='middle';
+const font=m=='emoji'?cf.fs+'px '+EMO:(cf.fs||12)+'px '+MONO;g.font=font;
+for(const s of sh){g.fillStyle=s.c;if(s.t=='t')g.fillText(s.ch,s.x,s.y);else if(s.t=='r')g.fillRect(s.x,s.y,s.w,s.h);else{g.beginPath();g.arc(s.x,s.y,s.r,0,6.2832);g.fill()}}
+const o=$('cmp');o.width=c.width;o.height=c.height;o.getContext('2d').drawImage(src,0,0,o.width,o.height);
+last={m,W,H,sh,bgc,fs:cf.fs,R,cols,txt:R.length>0,text:R.map(r=>r.join(m=='latex'?' ':'')).join('\n')};
+msg(cols+' × '+rows+' cells. Copy or download below.')}
+function svg(){const e=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'),f=x=>Math.round(x*10)/10,ff=last.m=='emoji'?EMO.replace(/"/g,"'"):MONO;
+let o='<svg xmlns="http://www.w3.org/2000/svg" width="'+last.W+'" height="'+last.H+'" viewBox="0 0 '+last.W+' '+last.H+'"><rect width="100%" height="100%" fill="'+last.bgc+'"/><g font-family="'+ff+'" font-size="'+(last.fs||12)+'" text-anchor="middle" dominant-baseline="central">';
+for(const s of last.sh){if(s.t=='t')o+='<text x="'+f(s.x)+'" y="'+f(s.y)+'" fill="'+s.c+'">'+e(s.ch)+'</text>';else if(s.t=='r')o+='<rect x="'+f(s.x)+'" y="'+f(s.y)+'" width="'+f(s.w)+'" height="'+f(s.h)+'" fill="'+s.c+'"/>';else o+='<circle cx="'+f(s.x)+'" cy="'+f(s.y)+'" r="'+f(s.r)+'" fill="'+s.c+'"/>'}
+return o+'</g></svg>'}
+function tex(){const rowsT=last.R.map(r=>r.map(t=>t==' '?'\\;':t).join(' & ')).join(' \\\\\n');
+return '\\documentclass{article}\n\\usepackage{amsmath,amssymb}\n\\usepackage[margin=5mm]{geometry}\n\\pagestyle{empty}\n\\begin{document}\n\\tiny\\setlength{\\arraycolsep}{0.5pt}\n\\[\\begin{array}{'+'c'.repeat(last.cols)+'}\n'+rowsT+'\n\\end{array}\\]\n\\end{document}\n'}
+function dl(name,blob){const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),2000)}
+function palette(d){const m=new Map();for(let i=0;i<d.length;i+=16){const k=((d[i]>>5)<<6)|((d[i+1]>>5)<<3)|(d[i+2]>>5),e=m.get(k)||[0,0,0,0];e[0]++;e[1]+=d[i];e[2]+=d[i+1];e[3]+=d[i+2];m.set(k,e)}
+const arr=[...m.values()].sort((a,b)=>b[0]-a[0]).map(e=>[e[1]/e[0],e[2]/e[0],e[3]/e[0]]),out=[];
+for(const c of arr){if(out.every(o=>Math.hypot(o[0]-c[0],o[1]-c[1],o[2]-c[2])>50))out.push(c);if(out.length==6)break}
+return out.map(c=>'#'+c.map(v=>Math.round(v).toString(16).padStart(2,'0')).join(''))}
+function analyse(c){const w=c.width,h=c.height,d=c.getContext('2d').getImageData(0,0,w,h).data,g=new Float32Array(w*h),bins=new Array(16).fill(0);let mean=0;
+for(let i=0;i<g.length;i++){g[i]=.299*d[i*4]+.587*d[i*4+1]+.114*d[i*4+2];mean+=g[i];bins[Math.min(15,Math.floor(g[i]/16))]++}mean/=g.length;
+let s=0,s2=0,n=0;for(let y=1;y<h-1;y++)for(let x=1;x<w-1;x++){const l=4*g[y*w+x]-g[y*w+x-1]-g[y*w+x+1]-g[(y-1)*w+x]-g[(y+1)*w+x];s+=l;s2+=l*l;n++}
+const v=s2/n-(s/n)**2;$('stats').innerHTML='Size: '+SW()+'×'+SH()+'<br>Sharpness (Laplacian variance): '+v.toFixed(0)+', '+(v<100?'blurry':'sharp')+'<br>Mean brightness: '+mean.toFixed(0)+'/255';
+const hc=$('hist'),hg=hc.getContext('2d'),mx=Math.max(...bins);hc.style.display='block';hg.clearRect(0,0,300,44);hg.fillStyle='#111';bins.forEach((b,i)=>{const bh=b/mx*40;hg.fillRect(i*18.75+2,44-bh,14,bh)});
+const sw=$('sw');sw.innerHTML='';palette(d).forEach(hx=>{const b=document.createElement('button');b.className='b';b.style.borderLeft='18px solid '+hx;b.textContent=hx;b.onclick=()=>{if(navigator.clipboard)navigator.clipboard.writeText(hx);msg(hx+' copied')};sw.append(b)})}
+function load(im){src=im;const c=$('prev'),s=Math.min(1,360/SW());c.width=Math.round(SW()*s);c.height=Math.round(SH()*s);c.getContext('2d').drawImage(im,0,0,c.width,c.height);analyse(c);render()}
+function fromFile(f){if(!f)return;if(!/^image\/(png|jpeg|webp)$/.test(f.type)){msg('Use a PNG, JPG or WebP image.');return}if(f.size>50*1048576){msg('File is over the 50 MB limit.');return}
+const u=URL.createObjectURL(f),im=new Image();im.onload=()=>{load(im);URL.revokeObjectURL(u)};im.onerror=()=>msg('That file is not a readable image.');im.src=u}
+fillStyles();
+$('file').onchange=e=>fromFile(e.target.files[0]);
+['dragover','drop'].forEach(ev=>$('drop').addEventListener(ev,e=>{e.preventDefault();if(ev=='drop')fromFile(e.dataTransfer.files[0])}));
+document.addEventListener('paste',e=>{const f=e.clipboardData&&e.clipboardData.files[0];if(f)fromFile(f)});
+$('sample').onclick=()=>{const c=document.createElement('canvas');c.width=640;c.height=420;const g=c.getContext('2d'),gr=g.createLinearGradient(0,0,640,420);gr.addColorStop(0,'#1a1040');gr.addColorStop(.5,'#c2185b');gr.addColorStop(1,'#ffb300');g.fillStyle=gr;g.fillRect(0,0,640,420);
+const rg=g.createRadialGradient(320,210,10,320,210,150);rg.addColorStop(0,'#fff');rg.addColorStop(1,'rgba(255,255,255,0)');g.fillStyle=rg;g.beginPath();g.arc(320,210,150,0,6.2832);g.fill();
+g.fillStyle='#111';g.beginPath();g.moveTo(320,95);g.lineTo(420,290);g.lineTo(220,290);g.closePath();g.fill();g.fillStyle='#fff';g.font='600 28px sans-serif';g.textAlign='center';g.fillText('Prismora',320,350);load(c)};
+$('clean').onclick=()=>{if(!src){msg('Choose an image first.');return}const c=document.createElement('canvas');c.width=SW();c.height=SH();c.getContext('2d').drawImage(src,0,0);c.toBlob(b=>dl('prismora-clean.png',b))};
+$('mode').onchange=()=>{fillStyles();render()};
+['style','inv','col','bg'].forEach(id=>$(id).onchange=render);
+let tm;['dens','con'].forEach(id=>$(id).oninput=()=>{clearTimeout(tm);tm=setTimeout(render,180)});
+$('go').onclick=render;
+$('cmps').oninput=e=>{$('cmp').style.clipPath='inset(0 '+(100-e.target.value)+'% 0 0)'};
+$('cp').onclick=async()=>{if(!last){msg('Render something first.');return}try{await navigator.clipboard.writeText(last.txt?last.text:svg());msg(last.txt?'Text copied.':'SVG markup copied.')}catch(err){msg('Copy was blocked by the browser. Use a download button.')}};
+$('dtxt').onclick=()=>last&&last.txt?dl('prismora-'+last.m+'.txt',new Blob([last.text],{type:'text/plain'})):msg('.txt works for emoji, ASCII, braille, binary, LaTeX and edge modes.');
+$('dpng').onclick=()=>last?$('out').toBlob(b=>dl('prismora-'+last.m+'.png',b)):msg('Render something first.');
+$('dsvg').onclick=()=>last?dl('prismora-'+last.m+'.svg',new Blob([svg()],{type:'image/svg+xml'})):msg('Render something first.');
+$('dtex').onclick=()=>last&&last.m=='latex'?dl('prismora-latex.tex',new Blob([tex()],{type:'text/plain'})):msg('.tex is for LaTeX matrix mode.');
 
 /* swarm */
 $('run').onclick=async()=>{const t=$('trace');t.innerHTML='';const L=[["Planner","Request: sharpen portrait, emoji-mosaic poster. DAG: analyse, upscale, symbolize, critique."],["Vision Analyst","Laplacian variance 62 (blurry). SAM 2 mask: 1 subject. OCR: none."],["Transformer","Real-ESRGAN x2 applied. Emoji mosaic density 80."],["Critic","Fidelity 0.71 is below threshold 0.80. <b>Retry 1/3</b> with GFPGAN face restore."],["Transformer","Re-ran with GFPGAN. Mosaic regenerated."],["Critic","Fidelity 0.91. <b>Approved.</b> C2PA provenance embedded."]];
