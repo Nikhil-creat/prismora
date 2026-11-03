@@ -1,0 +1,163 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Prismora — Image intelligence, editing and symbolic rendering</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f7f7f5;--ink:#111;--mute:#9a9a9a;--sub:#7b7b7b;--line:#e4e4e0}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.hero{position:relative;height:100vh;min-height:660px;overflow:hidden}
+#dots{position:absolute;inset:0;width:100%;height:100%;display:block}
+nav{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;justify-content:center;align-items:center;gap:clamp(18px,2.6vw,40px);padding:20px 16px 14px;font-size:13.5px;background:linear-gradient(var(--bg) 60%,transparent)}
+.brand{display:flex;align-items:center;gap:8px;font-weight:600;font-size:15px;letter-spacing:-.01em;margin-right:10px}
+nav a.l{color:#3a3a3a;transition:color .2s}nav a.l:hover{color:#000}
+.pill{background:#111;color:#fff;padding:10px 21px;border-radius:999px;font-weight:500;margin-left:10px;transition:transform .25s;border:0;font:inherit;font-weight:500;cursor:pointer;display:inline-block}
+.pill:hover{transform:translateY(-1px)}
+.copy{position:absolute;z-index:3;left:50%;top:24.5%;transform:translateX(-50%);text-align:center;width:min(92vw,720px)}
+h1{font-weight:500;letter-spacing:-.035em;line-height:1.04;font-size:clamp(38px,3.75vw,68px)}h1 span{display:block;color:var(--mute)}
+.copy p{margin:20px auto 0;max-width:340px;color:var(--sub);font-size:clamp(13px,1.02vw,15.5px);line-height:1.4}
+.cta{display:inline-block;position:relative;margin-top:clamp(34px,3.6vw,52px)}
+.cta::before{content:"";position:absolute;left:10%;right:10%;bottom:-6px;height:16px;border-radius:50%;background:linear-gradient(90deg,#ffcf5a,#7dffa8,#5ad7ff,#9b7bff,#ff6fd8,#ffb36b);filter:blur(9px);opacity:.85;transition:.3s}
+.cta:hover::before{opacity:1;filter:blur(12px);bottom:-9px}
+.cta a{position:relative;display:inline-block;background:#111;color:#fff;padding:11px 20px;border-radius:999px;font-size:13.5px;font-weight:500;transition:transform .3s}.cta:hover a{transform:translateY(-1px)}
+.logos{position:absolute;z-index:3;bottom:clamp(28px,6vh,64px);left:0;right:0;display:flex;justify-content:center;flex-wrap:wrap;gap:clamp(26px,4.6vw,66px);padding:0 16px;color:#8d8d8d;font-size:clamp(14px,1.18vw,17px);font-weight:500;letter-spacing:-.01em}
+.logos div{display:flex;align-items:center;gap:7px}.logos svg{width:17px;height:17px;fill:currentColor}
+section.s{max-width:1080px;margin:0 auto;padding:110px 24px 20px}
+h2{font-weight:500;letter-spacing:-.03em;font-size:clamp(28px,3vw,44px);line-height:1.08;max-width:640px}h2 span{color:var(--mute)}
+.lead{color:var(--sub);margin-top:16px;max-width:520px;line-height:1.5;font-size:15px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));margin-top:48px;border-top:1px solid var(--line)}
+.grid>div{padding:26px 24px 30px 0;border-bottom:1px solid var(--line)}.grid h3{font-weight:500;font-size:16px;margin-bottom:8px}.grid p{color:var(--sub);font-size:14px;line-height:1.5}
+.studio{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:44px}
+@media(max-width:760px){.studio{grid-template-columns:1fr}nav a.l{display:none}nav{justify-content:space-between;padding:22px 18px 0}.copy{top:20%}.logos{gap:14px 24px;font-size:13px}}
+.box{border:1px solid var(--line);border-radius:14px;background:#fff;padding:16px;min-height:300px;overflow:auto}
+.ctrl{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:14px;font-size:13px;color:var(--sub)}
+select,button.b{font:inherit;font-size:13px;padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:#fff;cursor:pointer}button.b.d{background:#111;color:#fff;border-color:#111}
+#out{white-space:pre;color:#0d0d0d;letter-spacing:0;font:6px/6px monospace}
+.stats{font-size:13px;color:var(--sub);line-height:1.7;margin-top:10px}
+#trace{background:#111;color:#cfe;font:12.5px/1.7 ui-monospace,Menlo,monospace;border-radius:14px;padding:18px;min-height:260px;margin-top:36px;overflow:auto}
+#trace i{color:#7dffa8;font-style:normal}#trace b{color:#ffcf5a;font-weight:500}
+footer{margin-top:110px;border-top:1px solid var(--line);padding:50px 24px 36px}.fi{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:2fr repeat(3,1fr);gap:30px;font-size:13.5px}
+.fi h4{font-weight:500;margin-bottom:10px}.fi a{display:block;color:var(--sub);margin:6px 0}.fb{max-width:1080px;margin:36px auto 0;color:var(--mute);font-size:12.5px}@media(max-width:760px){.fi{grid-template-columns:1fr 1fr}}
+#chatBtn{position:fixed;right:20px;bottom:20px;z-index:30;margin:0}
+#chat{position:fixed;right:20px;bottom:74px;z-index:30;width:min(380px,calc(100vw - 40px));height:480px;background:#fff;border:1px solid var(--line);border-radius:16px;display:none;flex-direction:column;box-shadow:0 20px 60px rgba(0,0,0,.12)}
+#chat.on{display:flex}#chat header{padding:12px 14px;border-bottom:1px solid var(--line);font-weight:500;font-size:14px;display:flex;justify-content:space-between;gap:8px;align-items:center}
+#msgs{flex:1;overflow:auto;padding:14px;font-size:13.5px;line-height:1.5}#msgs p{margin:0 0 10px;padding:9px 12px;border-radius:12px;background:#f1f1ee;max-width:92%;white-space:pre-wrap}#msgs p.u{background:#111;color:#fff;margin-left:auto}
+#cf{display:flex;gap:6px;padding:10px;border-top:1px solid var(--line)}#cf input{flex:1;border:1px solid var(--line);border-radius:999px;padding:9px 14px;font:inherit;font-size:13.5px}
+#keys{padding:10px 14px;border-bottom:1px solid var(--line);font-size:12px;color:var(--sub)}#keys input{width:100%;margin-top:6px;border:1px solid var(--line);border-radius:8px;padding:6px 8px;font:inherit;font-size:12px}
+:focus-visible{outline:2px solid #5ad7ff;outline-offset:2px}@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
+</style></head><body>
+<nav aria-label="Main"><a class="brand" href="#top"><svg width="16" height="18" viewBox="0 0 16 18"><path d="M2 0h4v18H2zM7 9c3-1 5-4 6-9h3c-1 5-3 8-6 9 3 1 5 4 6 9h-3c-1-5-3-8-6-9z"/></svg>Prismora</a>
+<a class="l" href="#platform">Platform</a><a class="l" href="#studio">Studio</a><a class="l" href="#swarm">Agents</a><a class="l" href="#security">Security</a><a class="l" href="#builder">Builder</a><a class="l" href="#pricing">Pricing</a><a class="pill" href="#studio">Open Studio</a></nav>
+
+<section class="hero" id="top"><canvas id="dots" aria-hidden="true"></canvas>
+<div class="copy"><h1><span>Seeing,</span>Reimagined by Agents.</h1><p>Recognise, edit and transform images with a swarm that checks its own work.</p>
+<div class="cta"><a href="#studio">Try the studio</a></div></div>
+<div class="logos" id="logos"></div></section>
+
+<section class="s" id="platform"><h2>One platform. <span>Every step of the image pipeline.</span></h2><p class="lead">From first upload to final export, each stage is handled by a specialist model and verified by a critic.</p>
+<div class="grid">
+<div><h3>Automatic recognition</h3><p>Gemini and Qwen3-VL reasoning, Grounding DINO + SAM 2 masks, OCR, blur, noise and NSFW checks.</p></div>
+<div><h3>Symbolic rendering</h3><p>Emoji mosaics, ASCII and LaTeX matrices, depth-map contours, all from the same image.</p></div>
+<div><h3>Generative editing</h3><p>Inpainting, outpainting, typography edits, Real-ESRGAN upscaling and relighting.</p></div>
+<div><h3>Visual RAG</h3><p>Brand guides and reference images are indexed in Qdrant so edits stay on style.</p></div>
+<div><h3>Agent swarm</h3><p>Planner, Vision Analyst, Transformer and Critic run as a LangGraph with self-healing retries.</p></div>
+<div><h3>Non-destructive layers</h3><p>Every step is a node in a history graph, so you can undo, branch and compare.</p></div></div></section>
+
+<section class="s" id="studio"><h2>Studio. <span>Runs in your browser, nothing uploaded.</span></h2><p class="lead">Drop an image to analyse it and render it as emoji, ASCII or LaTeX. This demo runs locally; the full pipeline runs on the backend.</p>
+<div class="studio"><div class="box"><p style="color:var(--sub);font-size:14px">Choose an image (PNG, JPG or WebP, up to 50 MB).</p><div class="ctrl"><input type="file" id="file" accept="image/png,image/jpeg,image/webp"></div><canvas id="prev" style="max-width:100%;margin-top:14px;border-radius:8px"></canvas><div class="stats" id="stats">No image loaded.</div></div>
+<div class="box"><div class="ctrl" style="margin:0 0 12px"><select id="mode"><option value="emoji">Emoji mosaic</option><option value="ascii">ASCII matrix</option><option value="latex">LaTeX matrix</option><option value="contour">Edge contours</option></select><label>Density <input type="range" id="dens" min="30" max="140" value="80"></label><button class="b d" id="go">Render</button></div><pre id="out"></pre></div></div></section>
+
+<section class="s" id="swarm"><h2>Agent swarm. <span>Watch it plan, act and self-correct.</span></h2><p class="lead">A sample trace of the LangGraph run. The live backend streams the same events over SSE.</p>
+<div class="ctrl"><button class="b d" id="run">Run workflow</button></div><div id="trace" role="log" aria-live="polite">Press Run workflow.</div></section>
+
+<section class="s" id="security"><h2>Security and limits <span>built in.</span></h2>
+<div class="grid"><div><h3>Upload integrity</h3><p>50 MB cap, magic-byte verification, EXIF stripping.</p></div><div><h3>Rate limiting</h3><p>Token bucket per API key, with usage metering by pixels and tokens.</p></div><div><h3>Access control</h3><p>Role-based access (admin, editor, viewer) per tenant.</p></div><div><h3>Provenance</h3><p>C2PA metadata on AI outputs and a deepfake risk score on inputs.</p></div><div><h3>GPU hygiene</h3><p>VRAM is released after every job, with CPU fallback when no GPU is present.</p></div><div><h3>Keys stay yours</h3><p>The chat assistant keeps your Groq or Gemini key in this tab only.</p></div></div></section>
+
+<section class="s" id="builder"><h2>Built by Nikhil Chary Sriramoju. <span>Final-year CSE, shipping AI systems.</span></h2>
+<p class="lead">Prismora is one of a series of full-stack AI projects, each with agents, RAG, CNN vision, Docker and a security model.</p>
+<div class="grid"><div><h3>Projects</h3><p>APEX-AI, CloudPulse AI, BastionMesh AI, ModelRoute, SecureNav-NEXUS, VigilAI Engine Mesh, PharmAi Vision, Raft KV Store.</p></div>
+<div><h3>Job simulations (Forage)</h3><p>PwC Technology and Cyber Security Consulting, Datacom Cyber Security Operations and Agentic AI, British Airways Data Science, Deloitte Data Analytics and Technology, Clifford Chance, Latham &amp; Watkins.</p></div>
+<div><h3>Courses and programmes</h3><p>NASSCOM Cloud Infrastructure Analyst, IT Forensic Analyst, Endpoint Security; Reliance Foundation IoT Security and AI-ML Engineer; NIELIT Yuva AI for All; Power BI.</p></div>
+<div><h3>Find me</h3><p><a href="https://github.com/Nikhil-creat">GitHub</a> · <a href="https://in.linkedin.com/in/nikhil-chary-sriramoju-95041b38a">LinkedIn</a> · <a href="mailto:sriramojunikhil66@gmail.com">Email</a></p></div></div></section>
+<section class="s" id="stack"><h2>Stack. <span>Free tiers all the way.</span></h2><div class="grid"><div><h3>Frontend</h3><p>Static HTML, canvas and vanilla JS. Hosts anywhere.</p></div><div><h3>Backend</h3><p>FastAPI, Celery worker, Redis, Qdrant, Docker.</p></div><div><h3>AI</h3><p>Groq and Gemini assistant, LangGraph swarm, CLIP RAG, optional SAM 2, EasyOCR, Real-ESRGAN, Depth Anything V2.</p></div></div></section>
+<section class="s" id="pricing"><h2>Pay for what you process.</h2><div class="grid">
+<div><h3>Starter</h3><p>Free. 100 images a month, symbolic engines, CPU queue.</p></div><div><h3>Studio</h3><p>$29 a month. 5,000 images, generative edits, Visual RAG.</p></div><div><h3>Enterprise</h3><p>Custom. Dedicated GPUs, SSO, RBAC and audit logs.</p></div></div></section>
+
+<footer><div class="fi"><div><a class="brand" href="#top">Prismora</a><p style="color:var(--sub);max-width:260px;line-height:1.5">Image intelligence for teams that ship visuals.</p></div>
+<div><h4>Product</h4><a href="#platform">Platform</a><a href="#studio">Studio</a><a href="#swarm">Agents</a></div><div><h4>Trust</h4><a href="#security">Security</a><a href="#pricing">Pricing</a></div><div><h4>Contact</h4><a href="mailto:sriramojunikhil66@gmail.com">Email</a><a href="https://github.com/Nikhil-creat">GitHub</a></div></div>
+<div class="fb">© 2026 Prismora Enterprise. All rights reserved.</div></footer>
+
+<button class="pill" id="chatBtn">Ask Prismora AI</button>
+<div id="chat" role="dialog" aria-label="AI assistant"><header>Assistant <select id="prov"><option value="groq">Groq</option><option value="gemini">Gemini</option><option value="api">Prismora API</option></select></header>
+<div id="keys">Paste a free API key (kept in this tab only).<input id="key" type="password" placeholder="Groq or Gemini API key" autocomplete="off"></div>
+<div id="msgs"><p>Hi. Ask me about Prismora, its agents or how to deploy it.</p></div><form id="cf"><input id="q" placeholder="Type a question" autocomplete="off"><button class="pill" style="margin:0;padding:9px 16px">Send</button></form></div>
+
+<script src="config.js"></script>
+<script>
+const LG=[["Lumenix","M3 15c0-7 5-12 14-12-1 9-6 14-13 13l-1 2-2-1z"],["Velora","M10 1l8 4.5v9L10 19l-8-4.5v-9zM10 6l-4 2.3v4.4L10 15l4-2.3V8.3z"],["Nimbus","M1 5q4.5-3 9 0t9 0v3q-4.5 3-9 0t-9 0zm0 7q4.5-3 9 0t9 0v3q-4.5 3-9 0t-9 0z"],["Quanta","M10 1a9 9 0 110 18 9 9 0 010-18zm0 3a6 6 0 100 12 6 6 0 000-12zm0 3a3 3 0 110 6 3 3 0 010-6z"],["Solstice","M1 17L7 6l3 5 3-7 6 13z"],["Parallax","M10 1l9 4-9 4-9-4zm-9 8l9 4 9-4v3l-9 4-9-4zm0 5l9 4 9-4v2l-9 4-9-4z"]];
+document.getElementById('logos').innerHTML=LG.map(([n,p])=>`<div><svg viewBox="0 0 20 20"><path d="${p}"/></svg>${n}</div>`).join('');
+
+/* dot-matrix hands */
+(()=>{const cv=document.getElementById('dots'),cx=cv.getContext('2d');
+const SRC={LA:[0,.06,.47,.40],RA:[.53,.06,.47,.40],LB:[0,.55,.47,.40],RB:[.53,.55,.47,.40]};
+const IMG="https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20261030_025250_100df7b8-31fd-4614-aa4a-c1b7d5b6b273.png&w=1600&q=85";
+const LOOP=20,LEVELS=[0,.26,.52,.78,1],T={};let W,H,DPR,step,rowStep,cols,rows,R,seeds,fA,fB,gA,gB,ready=false;
+const fr=x=>x-Math.floor(x),hash=(a,b)=>fr(Math.sin(a*127.1+b*311.7)*43758.5453),cl=(x,a=0,b=1)=>Math.min(b,Math.max(a,x));
+const sm=(a,b,x)=>{x=cl((x-a)/(b-a));return x*x*(3-2*x)},mixAt=(t,on,off,d)=>sm(on,on+d,t)*(1-sm(off,off+d,t));
+function size(){const r=cv.parentElement.getBoundingClientRect();W=r.width;H=r.height;DPR=Math.min(2,devicePixelRatio||1);cv.width=W*DPR;cv.height=H*DPR;
+step=Math.max(5,W/205);rowStep=step*2.05;cols=Math.ceil(W/step);rows=Math.ceil(H/rowStep);R=step*.46;
+seeds=new Float32Array(cols*rows);for(let j=0;j<rows;j++)for(let i=0;i<cols;i++)seeds[j*cols+i]=.55*hash(i,j)+.45*hash(j*3.1,7.7);
+fA=document.createElement('canvas');fB=document.createElement('canvas');fA.width=fB.width=cols;fA.height=fB.height=rows;
+gA=fA.getContext('2d',{willReadFrequently:true});gB=fB.getContext('2d',{willReadFrequently:true})}
+function hand(g,k,left,t){const port=H>W,a=2*Math.PI*t/LOOP,ph=left?0:Math.PI,hw=W*(port?.66:.53),hh=hw*(.40*1520)/(.47*2688),cy=H*(port?.66:.54);
+const reach=(.035*Math.sin(a+ph)+.012*Math.sin(2*a+1.3+ph))*W,sc=1+.07*Math.sin(a+.9+ph),rot=(left?1:-1)*.045*Math.sin(a+2.1+ph);
+const x=left?reach-W*.045:W-hw+W*.045-reach,px=left?x:x+hw;g.save();g.scale(cols/W,rows/H);g.translate(px,cy);g.rotate(rot);g.scale(sc,sc);g.translate(-px,-cy);g.drawImage(T[k],x,cy-hh/2,hw,hh);g.restore()}
+function render(t){if(!ready)return;t=((t%LOOP)+LOOP)%LOOP;const port=H>W;
+for(const g of[gA,gB]){g.fillStyle='#fff';g.fillRect(0,0,cols,rows)}
+hand(gA,'LA',1,t);hand(gA,'RA',0,t);hand(gB,'LB',1,t);hand(gB,'RB',0,t);
+const dA=gA.getImageData(0,0,cols,rows).data,dB=gB.getImageData(0,0,cols,rows).data;
+cx.setTransform(DPR,0,0,DPR,0,0);cx.clearRect(0,0,W,H);cx.fillStyle='#0d0d0d';
+const mL=mixAt(t,6.2,14.6,1.6),mR=mixAt(t,2.4,10.4,1.6),tick=Math.floor(t*7);
+for(let j=0;j<rows;j++){let shift=0;if(hash(j,tick)>.965)shift=Math.round((hash(tick,j)-.5)*8);const cyy=(j+.5)*rowStep;
+for(let i=0;i<cols;i++){const si=cl(i-shift,0,cols-1),seed=seeds[j*cols+i],m=i<cols/2?mL:mR,d=(j*cols+si)*4;
+const lum=((seed<m?dB:dA)[d])/255;let v=cl((1-lum-.16)/.42);if(v<=0)continue;
+if(m>.001&&m<.999&&Math.abs(seed-m)<.12){v*=Math.abs(seed-m)/.12;if(hash(i+tick,j)<=.4)v*=.3}
+v*=.86+.14*Math.sin(t*3.2+seed*40);const cxn=Math.abs((i+.5)/cols-.5);v*=sm(.035,.11,cxn);
+const ex=cxn/(port?.44:.2),ey=(cyy/H-(port?.33:.385))/.085;v*=sm(.85,1.25,Math.hypot(ex,ey));
+let lv=0;for(let q=4;q>=1;q--)if(v>=LEVELS[q]-.13){lv=q;break}if(!lv)continue;
+const r=lv==1?R*.38:R*LEVELS[lv];cx.beginPath();cx.arc((i+.5)*step,cyy,r,0,6.2832);cx.fill()}}}
+window.__render=render;
+const img=new Image();img.crossOrigin='anonymous';
+img.onload=()=>{for(const k in SRC){const[sx,sy,sw,sh]=SRC[k],c=document.createElement('canvas'),w=420,h=Math.round(w*(sh*img.naturalHeight)/(sw*img.naturalWidth));c.width=w;c.height=h;
+const g=c.getContext('2d');g.imageSmoothingQuality='high';g.drawImage(img,sx*img.naturalWidth,sy*img.naturalHeight,sw*img.naturalWidth,sh*img.naturalHeight,0,0,w,h);T[k]=c}
+ready=true;size();const t0=performance.now();const loop=n=>{render((n-t0)/1000);requestAnimationFrame(loop)};requestAnimationFrame(loop)};
+img.src=IMG;addEventListener('resize',()=>ready&&size());size()})();
+
+/* studio */
+const $=id=>document.getElementById(id);let src=null;
+$('file').onchange=e=>{const f=e.target.files[0];if(!f)return;if(f.size>50*1048576){$('stats').textContent='File is over the 50 MB limit.';return}
+const u=URL.createObjectURL(f),im=new Image();im.onload=()=>{src=im;const c=$('prev'),s=Math.min(1,360/im.width);c.width=im.width*s;c.height=im.height*s;c.getContext('2d').drawImage(im,0,0,c.width,c.height);analyse(c);URL.revokeObjectURL(u)};im.onerror=()=>$('stats').textContent='That file is not a readable image.';im.src=u};
+function gray(w,h){const c=document.createElement('canvas');c.width=w;c.height=h;const g=c.getContext('2d');g.drawImage(src,0,0,w,h);const d=g.getImageData(0,0,w,h).data,o=new Float32Array(w*h);for(let i=0;i<o.length;i++)o[i]=.299*d[i*4]+.587*d[i*4+1]+.114*d[i*4+2];return o}
+function analyse(c){const w=c.width,h=c.height,g=gray(w,h);let s=0,s2=0,n=0;for(let y=1;y<h-1;y++)for(let x=1;x<w-1;x++){const l=4*g[y*w+x]-g[y*w+x-1]-g[y*w+x+1]-g[(y-1)*w+x]-g[(y+1)*w+x];s+=l;s2+=l*l;n++}
+const v=s2/n-(s/n)**2,mean=g.reduce((a,b)=>a+b,0)/g.length;$('stats').innerHTML=`Size: ${src.naturalWidth}×${src.naturalHeight}<br>Sharpness (Laplacian variance): ${v.toFixed(0)}, ${v<100?'blurry':'sharp'}<br>Mean brightness: ${mean.toFixed(0)}/255`}
+$('go').onclick=()=>{if(!src){$('stats').textContent='Choose an image first.';return}
+const cols=+$('dens').value,rows=Math.round(cols*src.naturalHeight/src.naturalWidth*.5);let g=gray(cols,rows),m=$('mode').value;if(m=='contour'){const e=new Float32Array(g.length);for(let y=1;y<rows-1;y++)for(let x=1;x<cols-1;x++){const gx=g[y*cols+x+1]-g[y*cols+x-1],gy=g[(y+1)*cols+x]-g[(y-1)*cols+x];e[y*cols+x]=255-Math.min(255,Math.hypot(gx,gy)*2)}g=e;m='ascii'}
+const ramp=m=='ascii'?'@%#*+=-:. '.split(''):m=='emoji'?['🌑','🌒','🌓','🌔','🌕','⭐','✨','🤍']:['\\sum','\\int','\\nabla','x^2','=','-','.',' '];let out='';
+for(let y=0;y<rows;y++){const line=[];for(let x=0;x<cols;x++){const l=g[y*cols+x]/255;line.push(ramp[Math.min(ramp.length-1,Math.floor(l*ramp.length))])}out+=(m=='latex'?line.join(' ')+' \\\\':line.join(''))+'\n'}
+const o=$('out');o.style.font=m=='emoji'?'9px/10px sans-serif':m=='latex'?'9px/10px monospace':'6px/6px monospace';o.textContent=out};
+
+/* swarm */
+$('run').onclick=async()=>{const t=$('trace');t.innerHTML='';const L=[["Planner","Request: sharpen portrait, emoji-mosaic poster. DAG: analyse, upscale, symbolize, critique."],["Vision Analyst","Laplacian variance 62 (blurry). SAM 2 mask: 1 subject. OCR: none."],["Transformer","Real-ESRGAN x2 applied. Emoji mosaic density 80."],["Critic","Fidelity 0.71 is below threshold 0.80. <b>Retry 1/3</b> with GFPGAN face restore."],["Transformer","Re-ran with GFPGAN. Mosaic regenerated."],["Critic","Fidelity 0.91. <b>Approved.</b> C2PA provenance embedded."]];
+for(const[a,m]of L){t.innerHTML+=`<div><i>[${a}]</i> ${m}</div>`;t.scrollTop=1e5;await new Promise(r=>setTimeout(r,matchMedia('(prefers-reduced-motion:reduce)').matches?0:900))}};
+
+/* assistant (calls Groq or Gemini directly with the visitor's own key) */
+const SYS="You are Prismora AI, the assistant for Prismora Enterprise: an image intelligence platform with FastAPI, LangGraph agents (Planner, Vision Analyst, Transformer, Critic), Qdrant visual RAG, CNN diagnostics, Docker deployment, and symbolic rendering (emoji, ASCII, LaTeX). Answer briefly and accurately. If unsure, say so.";const hist=[];
+$('chatBtn').onclick=()=>$('chat').classList.toggle('on');
+function add(t,c){const p=document.createElement('p');p.textContent=t;if(c)p.className=c;$('msgs').append(p);$('msgs').scrollTop=1e5;return p}
+$('cf').onsubmit=async e=>{e.preventDefault();const q=$('q').value.trim(),k=$('key').value.trim();if(!q)return;if(!k){add('Paste your API key above first.');return}
+$('q').value='';add(q,'u');hist.push({role:'user',content:q});const p=add('…');
+try{let txt;if($('prov').value=='api'){const base=window.PRISMORA_API;if(!base)throw new Error('Set PRISMORA_API in config.js');const r=await fetch(base+'/api/assistant',{method:'POST',headers:{'Content-Type':'application/json','X-API-Key':k},body:JSON.stringify({message:q,history:hist.slice(-9,-1)})});const j=await r.json();if(!r.ok)throw new Error(j.detail||r.status);txt=j.reply}else if($('prov').value=='groq'){const r=await fetch('https://api.groq.com/openai/v1/chat/completions',{method:'POST',headers:{'Content-Type':'application/json',Authorization:'Bearer '+k},body:JSON.stringify({model:'llama-3.3-70b-versatile',messages:[{role:'system',content:SYS},...hist.slice(-10)]})});const j=await r.json();if(!r.ok)throw new Error(j.error?.message||r.status);txt=j.choices[0].message.content}
+else{const r=await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key='+encodeURIComponent(k),{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({system_instruction:{parts:[{text:SYS}]},contents:hist.slice(-10).map(m=>({role:m.role=='user'?'user':'model',parts:[{text:m.content}]}))})});const j=await r.json();if(!r.ok)throw new Error(j.error?.message||r.status);txt=j.candidates[0].content.parts[0].text}
+p.textContent=txt;hist.push({role:'assistant',content:txt})}catch(err){p.textContent='Request failed: '+err.message+'. Check the key and provider.'}};
+</script></body></html>

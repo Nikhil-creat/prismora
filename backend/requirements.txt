@@ -1,0 +1,14 @@
+fastapi==0.115.*
+uvicorn[standard]==0.32.*
+pydantic>=2.8
+python-multipart
+numpy
+opencv-python-headless
+pillow
+httpx
+langgraph>=0.2
+qdrant-client>=1.9
+sentence-transformers>=3.0
+redis
+celery[redis]
+# optional heavy models (set ENABLE_MODELS=1): easyocr, transformers, segment-anything-2, realesrgan
